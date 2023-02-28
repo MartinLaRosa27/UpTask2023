@@ -1,0 +1,4 @@
+### Environment Variables:
+
+NEXT_PUBLIC_BACKEND_URL  
+NEXT_PUBLIC_COOKIE_EXP_SEC

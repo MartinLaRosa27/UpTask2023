@@ -1,3 +1,7 @@
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { Welcome } from "@/components/home/Welcome";
+import { List } from "@/components/List";
 import Head from "next/head";
 
 export default function Home() {
@@ -7,7 +11,12 @@ export default function Home() {
         <title>Home | UpTask 2023</title>
       </Head>
       <main>
-        <h1>Hello World</h1>
+        <Header />
+        <div className="list-container">
+          <List />
+          <Welcome />
+        </div>
+        <Footer />
       </main>
     </>
   );

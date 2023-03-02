@@ -1,6 +1,11 @@
 #home-welcome {
   min-width: 70% !important;
 }
+#home-welcome img {
+  margin-left: 5px;
+  width: 20%;
+  height: auto;
+}
 #home-welcome h4 strong {
   font-style: italic;
 }
@@ -13,6 +18,20 @@
 @media (max-width: 768px) {
   #home-welcome {
     min-width: 100% !important;
+    height: 100vh;
+  }
+}
+@media (max-width: 576px) {
+  #home-welcome img {
+    width: 30%;
+  }
+}
+#new-proyect-form button {
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  #new-proyect-form {
     height: 100vh;
   }
 }
@@ -41,11 +60,13 @@ body {
 #header .container .full-logo {
   width: 250px;
   height: 70px;
+  cursor: pointer;
 }
 #header .container .icon-logo {
   width: 50px;
   height: 50px;
   display: none;
+  cursor: pointer;
 }
 #header .container button span {
   display: none;

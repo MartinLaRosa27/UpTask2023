@@ -1,6 +1,12 @@
 #home-welcome {
   min-width: 70% !important;
 
+  img {
+    margin-left: 5px;
+    width: 20%;
+    height: auto;
+  }
+
   h4 {
     strong {
       font-style: italic;
@@ -18,5 +24,13 @@
   #home-welcome {
     min-width: 100% !important;
     height: 100vh;
+  }
+}
+
+@media (max-width: 576px) {
+  #home-welcome {
+    img {
+      width: 30%;
+    }
   }
 }

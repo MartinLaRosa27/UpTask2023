@@ -1,5 +1,6 @@
 @import "variables";
 @import "./pages/home/index";
+@import "./pages/new-proyect/index";
 
 * {
   font-family: "Raleway", sans-serif;
@@ -24,11 +25,13 @@ body {
     .full-logo {
       width: 250px;
       height: 70px;
+      cursor: pointer;
     }
     .icon-logo {
       width: 50px;
       height: 50px;
       display: none;
+      cursor: pointer;
     }
     button {
       span {

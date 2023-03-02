@@ -87,18 +87,26 @@ body {
   color: #ffc107;
   transition: 0.4s;
 }
+#list .selected-proyect {
+  cursor: pointer;
+  font-weight: bold !important;
+  color: #ffc107 !important;
+}
 #list li {
   background: none;
-  color: #fff;
   border-width: 0 0 1px;
-}
-#list li:hover {
-  cursor: pointer;
-  color: #ffc107;
-  transition: 0.4s;
 }
 #list li:last-of-type {
   border: none;
+}
+#list li .item {
+  color: #fff;
+  text-decoration: none;
+}
+#list li .item:hover {
+  cursor: pointer;
+  color: #ffc107;
+  transition: 0.4s;
 }
 
 #footer {

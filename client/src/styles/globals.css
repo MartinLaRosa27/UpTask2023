@@ -35,6 +35,98 @@
     height: 100vh;
   }
 }
+#proyect .information {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#proyect .information .buttons .btn {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  padding: 4px;
+  border: 1px solid #1e1e1e;
+}
+#proyect .information .buttons .btn:first-of-type {
+  margin-right: 10px;
+}
+
+#proyect-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#proyect-progress .progress {
+  border: 1px solid black;
+  width: 80%;
+  height: 30px;
+}
+
+#proyect-tasks {
+  width: 75%;
+}
+#proyect-tasks .header {
+  display: flex;
+  justify-content: space-between;
+}
+#proyect-tasks .header .btn {
+  border: 1px solid black;
+  padding: 5px !important;
+}
+#proyect-tasks ul {
+  width: 100%;
+}
+#proyect-tasks ul li {
+  background-color: #95ddff;
+}
+#proyect-tasks ul li span:first-of-type {
+  margin-right: 10px;
+}
+#proyect-tasks ul li span:hover {
+  cursor: pointer;
+  transition: 0.4s;
+  background-color: #141414 !important;
+}
+
+@media (max-width: 576px) {
+  #proyect-tasks .header .btn {
+    font-size: 0.7rem;
+    padding: 4px !important;
+  }
+}
+#proyect-participants {
+  width: 75%;
+}
+#proyect-participants .header {
+  display: flex;
+  justify-content: space-between;
+}
+#proyect-participants .header .btn {
+  border: 1px solid black;
+  padding: 5px;
+  text-transform: capitalize;
+}
+#proyect-participants ul {
+  width: 100%;
+}
+#proyect-participants ul li {
+  background-color: #95ddff;
+}
+#proyect-participants ul li span:first-of-type {
+  margin-right: 10px;
+}
+#proyect-participants ul li span:hover {
+  cursor: pointer;
+  transition: 0.4s;
+  background-color: #141414 !important;
+}
+
+@media (max-width: 576px) {
+  #proyect-participants .header .btn {
+    font-size: 0.7rem;
+    padding: 1px !important;
+  }
+}
 * {
   font-family: "Raleway", sans-serif;
 }
@@ -68,8 +160,22 @@ body {
   display: none;
   cursor: pointer;
 }
-#header .container button span {
+#header .container .settings {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#header .container .settings button {
+  margin-right: 10px;
+  border: 1px solid black;
+}
+#header .container .settings button span {
   display: none;
+}
+#header .container .settings .user-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
 #list {
@@ -138,10 +244,14 @@ body {
   #header .icon-logo {
     display: block !important;
   }
-  #header strong {
+  #header .settings button strong {
     display: none;
   }
-  #header span {
+  #header .settings button span {
     display: block !important;
+  }
+  #header .settings .user-icon {
+    width: 35px !important;
+    height: 35px !important;
   }
 }/*# sourceMappingURL=globals.css.map */

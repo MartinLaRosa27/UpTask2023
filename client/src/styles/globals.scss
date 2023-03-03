@@ -1,6 +1,7 @@
 @import "variables";
 @import "./pages/home/index";
 @import "./pages/new-proyect/index";
+@import "./pages/proyect/index";
 
 * {
   font-family: "Raleway", sans-serif;
@@ -33,9 +34,24 @@ body {
       display: none;
       cursor: pointer;
     }
-    button {
-      span {
-        display: none;
+
+    .settings {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      button {
+        margin-right: 10px;
+        border: 1px solid black;
+        span {
+          display: none;
+        }
+      }
+
+      .user-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
       }
     }
   }
@@ -119,11 +135,21 @@ body {
     .icon-logo {
       display: block !important;
     }
-    strong {
-      display: none;
-    }
-    span {
-      display: block !important;
+
+    .settings {
+      button {
+        strong {
+          display: none;
+        }
+        span {
+          display: block !important;
+        }
+      }
+
+      .user-icon {
+        width: 35px !important;
+        height: 35px !important;
+      }
     }
   }
 }

@@ -8,10 +8,11 @@ Classic web application where a logged in user can register the projects that ar
 
 1. Users will be able to sign in with their account, or if they don't have one, they will be able to create one.
 2. Only registered users will be able to access the web application.
-3. Users will be able to register projects, with their respective tasks.
-4. Users will be able to share their projects with other users, so that they can add, modify or delete tasks from the same project.
-5. The administrators are the only ones who can delete the project, or modify its name.
-6. Administrators are the only ones who can share the project, and remove users from the same project so they don't collaborate anymore.
+3. Users will be able to change their profile photo, username and password.
+4. Users will be able to register projects, with their respective tasks.
+5. Users will be able to share their projects with other users, so that they can add, modify or delete tasks from the same project.
+6. The administrators are the only ones who can delete the project, or modify its name.
+7. Administrators are the only ones who can share the project, and remove users from the same project so they don't collaborate anymore.
 
 ### Technologies:
 

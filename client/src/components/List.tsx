@@ -19,10 +19,10 @@ export const List = () => {
           <h3 className="fw-bold fst-italic default-title">My Projects</h3>
           <ul className="list-group mt-3">
             <li className="list-group-item selected-proyect">
-              Selected Proyect
+              Selected project
             </li>
             <li className="list-group-item">
-              <Link href={`/proyect/1`} className="item">
+              <Link href={`/project/1`} className="item">
                 A third item
               </Link>
             </li>
@@ -38,7 +38,7 @@ export const List = () => {
                 Selected Proyect RESPONSIVE
               </li>
               <li className="list-group-item">
-                <Link href={`/proyect/1`} className="item">
+                <Link href={`/project/1`} className="item">
                   A third item RESPONSIVE
                 </Link>
               </li>

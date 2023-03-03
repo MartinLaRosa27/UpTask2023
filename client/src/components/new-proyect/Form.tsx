@@ -10,11 +10,11 @@ export const Form = () => {
     },
     validationSchema: Yup.object({
       name: Yup.string()
-        .required("The proyect name is required.")
-        .min(3, "The proyect name only can have between 3 and 255 characters.")
+        .required("The project name is required.")
+        .min(3, "The project name only can have between 3 and 255 characters.")
         .max(
           255,
-          "The proyect name only can have between 3 and 255 characters."
+          "The project name only can have between 3 and 255 characters."
         ),
       categoryId: Yup.string().required("The categoryId is required."),
     }),
@@ -29,7 +29,7 @@ export const Form = () => {
   return (
     <div id="new-proyect-form" className="container">
       <h2 className="text-center mt-5 mb-5">
-        Register a <strong>New Proyect</strong>
+        Register a <strong>New Project</strong>
       </h2>
       <form onSubmit={formik.handleSubmit} method="POST">
         <div className="form-floating mb-3">
@@ -37,7 +37,7 @@ export const Form = () => {
             type="text"
             className="form-control"
             id="floatingInput"
-            placeholder="Proyect Name"
+            placeholder="Project Name"
             name="name"
             onChange={formik.handleChange}
             value={formik.values.name}
@@ -45,7 +45,7 @@ export const Form = () => {
           {formik.errors.name && formik.values.name.length !== 0 && (
             <small className="text-danger">{formik.errors.name}</small>
           )}
-          <label>Proyect Name</label>
+          <label>Project Name</label>
         </div>
         <div>
           <select
@@ -56,7 +56,7 @@ export const Form = () => {
             onChange={formik.handleChange}
             value={formik.values.categoryId}
           >
-            <option value={0}>Proyect Category</option>
+            <option value={0}>Project Category</option>
             <option value={1}>Work</option>
             <option value={2}>Study</option>
             <option value={3}>Home</option>

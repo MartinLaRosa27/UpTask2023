@@ -57,7 +57,7 @@ export const Header = () => {
             }
             id="basic-nav-dropdown"
           >
-            <NavDropdown.Item href="#action/3.3">My Account</NavDropdown.Item>
+            <NavDropdown.Item href="/settings">My Account</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="#action/3.4">Log out</NavDropdown.Item>
           </NavDropdown>

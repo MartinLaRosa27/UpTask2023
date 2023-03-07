@@ -127,6 +127,84 @@
     padding: 1px !important;
   }
 }
+#settings-main .wrapper {
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  margin: auto;
+  width: 80% !important;
+}
+#settings-main h4 {
+  letter-spacing: -1px;
+  font-weight: 400;
+}
+#settings-main .img {
+  width: 70px;
+  height: 70px;
+  border-radius: 6px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 10px;
+}
+#settings-main #img-section p,
+#settings-main #deactivate p {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+#settings-main #img-section b,
+#settings-main #img-section button,
+#settings-main #deactivate b {
+  font-size: 14px;
+}
+#settings-main label {
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #777;
+  padding-left: 3px;
+}
+#settings-main .form-control {
+  border-radius: 10px;
+}
+#settings-main input[placeholder] {
+  font-weight: 500;
+}
+#settings-main .form-control:focus {
+  box-shadow: none;
+  border: 1.5px solid #0779e4;
+}
+#settings-main select {
+  display: block;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  height: 40px;
+  padding: 5px 10px;
+}
+#settings-main select:focus {
+  outline: none;
+}
+#settings-main .button {
+  background-color: #fff;
+  color: #0779e4;
+}
+#settings-main .button:hover {
+  background-color: #0779e4;
+  color: #fff;
+}
+#settings-main .btn-primary {
+  background-color: #0779e4;
+}
+
+@media (max-width: 576px) {
+  #settings-main .wrapper {
+    padding: 25px 20px;
+  }
+  #settings-main #deactivate {
+    line-height: 18px;
+  }
+}
 * {
   font-family: "Raleway", sans-serif;
 }

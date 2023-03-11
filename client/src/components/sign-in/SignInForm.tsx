@@ -25,6 +25,8 @@ export const SignInForm = () => {
         .max(50, "The username only can have between 3 and 255 characters."),
       password: Yup.string()
         .required("The password is required.")
+        .min(8, "The password only can have between 8 and 25 characters.")
+        .max(25, "The password only can have between 8 and 25 characters.")
         .matches(
           /^[0-9a-zA-Z]+$/,
           "The password can only contain lowercase letters, uppercase letters, and numbers."

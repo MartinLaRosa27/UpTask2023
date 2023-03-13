@@ -2,8 +2,13 @@ import React from "react";
 import Link from "next/link";
 import * as Yup from "yup";
 import { useFormik } from "formik";
+import { useRouter } from "next/router";
+import { useUserContext } from "../../context/UserContext";
 
 export const Login = () => {
+  const router = useRouter();
+  const { userAuthentication } = useUserContext();
+
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -14,7 +19,10 @@ export const Login = () => {
       password: Yup.string().required("The password is required."),
     }),
     onSubmit: async (formData: any) => {
-      console.log(formData);
+      const result = await userAuthentication(formData);
+      if (result) {
+        router.push("/");
+      }
     },
   });
 

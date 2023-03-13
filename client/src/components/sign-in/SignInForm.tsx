@@ -1,11 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import * as Yup from "yup";
+import { useRouter } from "next/router";
 import { useFormik } from "formik";
 import { useStateContext } from "../../context/StateContext";
+import { useUserContext } from "../../context/UserContext";
 
 export const SignInForm = () => {
+  const router = useRouter();
   const { countriesList, getAllCountries } = useStateContext();
+  const { postUser } = useUserContext();
 
   React.useEffect(() => {
     getAllCountries();
@@ -38,7 +42,10 @@ export const SignInForm = () => {
       country: Yup.string().required("The country is required."),
     }),
     onSubmit: async (formData: any) => {
-      console.log(formData);
+      const result = await postUser(formData);
+      if (result) {
+        router.push("/");
+      }
     },
   });
 

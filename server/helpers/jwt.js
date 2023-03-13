@@ -5,8 +5,8 @@ module.exports.createToken = (user) => {
   const payload = {
     _id: user._id,
     username: user.username,
-    country: user.fullName,
-    img: user.image,
+    country: user.country,
+    img: user.img,
     exp: moment().unix() + process.env.TOKEN_EXP_SEC,
   };
   const token = jwt.encode(payload, process.env.SECRET);

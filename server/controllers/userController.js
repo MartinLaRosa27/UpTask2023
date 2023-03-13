@@ -20,17 +20,21 @@ module.exports.postUser = async (input) => {
 
 module.exports.userAuthentication = async (input) => {
   const { username, password } = input;
-  const userExists = await User.findOne({
-    where: {
-      username,
-    },
-  });
-  if (!userExists) {
-    throw new Error("The user is not registered");
+  try {
+    const userExists = await User.findOne({
+      where: {
+        username,
+      },
+    });
+    if (!userExists) {
+      throw new Error("The user is not registered");
+    }
+    if (!bcrypt.compareSync(password, userExists.password)) {
+      throw new Error("Incorrect password");
+    }
+    const token = createToken(userExists);
+    return token;
+  } catch (e) {
+    throw new Error(e);
   }
-  if (!bcrypt.compareSync(password, userExists.password)) {
-    throw new Error("Incorrect password");
-  }
-  const token = createToken(userExists);
-  return token;
 };

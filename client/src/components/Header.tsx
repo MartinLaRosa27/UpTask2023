@@ -5,9 +5,11 @@ import icon from "../assets/icon.png";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { useRouter } from "next/router";
+import { useUserContext } from "../context/UserContext";
 
 export const Header = () => {
   const router = useRouter();
+  const { logout } = useUserContext();
 
   const handleClickToHome = () => {
     router.push("/");
@@ -15,6 +17,10 @@ export const Header = () => {
 
   const handleClickToNewProyect = () => {
     router.push("/new-proyect");
+  };
+
+  const handleClickLogOut = () => {
+    logout();
   };
 
   return (
@@ -59,7 +65,12 @@ export const Header = () => {
           >
             <NavDropdown.Item href="/settings">My Account</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">Log out</NavDropdown.Item>
+            <NavDropdown.Item
+              href="#action/3.4"
+              onClick={() => handleClickLogOut()}
+            >
+              Log out
+            </NavDropdown.Item>
           </NavDropdown>
         </div>
       </div>

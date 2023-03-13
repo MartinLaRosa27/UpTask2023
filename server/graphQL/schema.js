@@ -7,8 +7,16 @@ module.exports.typeDefs = gql`
     country: String
   }
 
+  type userType {
+    _id: String
+    username: String
+    country: String
+    img: String
+  }
+
   type Query {
     userAuthentication(input: userInput): String
+    auth(token: String): userType
   }
 
   type Mutation {

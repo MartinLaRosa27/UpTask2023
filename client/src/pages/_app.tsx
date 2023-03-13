@@ -3,6 +3,8 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { SSRProvider } from "@react-aria/ssr";
 import { StateContext } from "@/context/StateContext";
+import { UserContext } from "@/context/UserContext";
+import { Toaster } from "react-hot-toast";
 import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -20,7 +22,10 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <SSRProvider>
         <StateContext>
-          <Component {...pageProps} />
+          <UserContext>
+            <Toaster />
+            <Component {...pageProps} />
+          </UserContext>
         </StateContext>
       </SSRProvider>
     </>

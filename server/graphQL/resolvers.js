@@ -3,6 +3,7 @@ const {
   userAuthentication,
   patchUser,
 } = require("../controllers/userController");
+const { getAllCategories } = require("../controllers/categoryController");
 const { auth } = require("../middleware/auth");
 
 module.exports.resolvers = {
@@ -15,6 +16,11 @@ module.exports.resolvers = {
     // User:
     userAuthentication: (root, { input }, context) => {
       return userAuthentication(input);
+    },
+
+    // Category:
+    getAllCategories: (root, {}, context) => {
+      return getAllCategories();
     },
   },
 

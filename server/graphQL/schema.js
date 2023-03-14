@@ -14,9 +14,15 @@ module.exports.typeDefs = gql`
     img: String
   }
 
+  type categoryType {
+    _id: String
+    name: String
+  }
+
   type Query {
     userAuthentication(input: userInput): String
     auth(token: String): userType
+    getAllCategories: [categoryType]
   }
 
   type Mutation {

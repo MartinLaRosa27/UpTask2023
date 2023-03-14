@@ -1,4 +1,5 @@
 require("../models/User");
+require("../models/Category");
 const { DBConfiguration } = require("./DBConfiguration");
 
 module.exports.DBConnection = () => {

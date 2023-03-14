@@ -18,6 +18,7 @@ export const StateContext = ({ children }) => {
       .catch((e) => console.log(e));
   };
 
+  // ---------------------------------------------------------------------------
   return (
     <Context.Provider value={{ countriesList, getAllCountries }}>
       {children}

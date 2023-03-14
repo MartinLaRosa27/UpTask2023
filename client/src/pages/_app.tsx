@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { StateContext } from "@/context/StateContext";
 import { UserContext } from "@/context/UserContext";
+import { CategoryContext } from "@/context/CategoryContext";
 import { Toaster } from "react-hot-toast";
 import Head from "next/head";
 
@@ -21,8 +22,10 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <StateContext>
         <UserContext>
-          <Toaster />
-          <Component {...pageProps} />
+          <CategoryContext>
+            <Toaster />
+            <Component {...pageProps} />
+          </CategoryContext>
         </UserContext>
       </StateContext>
     </>

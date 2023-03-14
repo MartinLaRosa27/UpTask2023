@@ -56,7 +56,7 @@ module.exports.patchUser = async (input, user) => {
   if (user) {
     try {
       await User.sequelize.query(
-        `UPDATE users SET username='${username}', country='${country}'
+        `UPDATE users SET username='${username}', country='${country}', updatedAt='${NOW()}'
         WHERE _id='${user._id}';`,
         {
           type: QueryTypes.UPDATE,

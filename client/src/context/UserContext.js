@@ -173,6 +173,7 @@ export const UserContext = ({ children }) => {
     window.location.reload();
   };
 
+  // ---------------------------------------------------------------------------
   return (
     <Context.Provider
       value={{ postUser, patchUser, userAuthentication, logout }}

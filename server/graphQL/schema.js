@@ -3,7 +3,7 @@ const { gql } = require("apollo-server");
 module.exports.typeDefs = gql`
   input userInput {
     username: String!
-    password: String!
+    password: String
     country: String
   }
 
@@ -21,5 +21,6 @@ module.exports.typeDefs = gql`
 
   type Mutation {
     postUser(input: userInput): String
+    patchUser(input: userInput): String
   }
 `;

@@ -7,6 +7,7 @@ import axios from "axios";
 const Context = createContext();
 
 export const UserContext = ({ children }) => {
+  // ---------------------------------------------------------------------------
   const postUser = async (form) => {
     let userConfirmation = false;
     const POST_USER = gql`
@@ -30,7 +31,7 @@ export const UserContext = ({ children }) => {
           toast.success("User successfully registered", {
             style: {
               background: "#333",
-              color: "#5cc1ef",
+              color: "#fff",
               fontWeight: "bold",
               textAlign: "center",
             },
@@ -45,7 +46,7 @@ export const UserContext = ({ children }) => {
           toast.error(res.data.errors[0].message, {
             style: {
               background: "#333",
-              color: "#5cc1ef",
+              color: "#fff",
               fontWeight: "bold",
               textAlign: "center",
             },
@@ -58,6 +59,63 @@ export const UserContext = ({ children }) => {
     return userConfirmation;
   };
 
+  // ---------------------------------------------------------------------------
+  const patchUser = async (form, token) => {
+    const PATCH_USER = gql`
+      mutation PatchUser($input: userInput) {
+        patchUser(input: $input)
+      }
+    `;
+    await axios
+      .post(
+        `http://${process.env.NEXT_PUBLIC_BACKEND_URL}`,
+        {
+          query: print(PATCH_USER),
+          variables: {
+            input: {
+              username: form.username,
+              country: form.country,
+            },
+          },
+        },
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      )
+      .then(async (res) => {
+        if (!res.data.errors) {
+          toast.success("User information changed successfully", {
+            style: {
+              background: "#333",
+              color: "#fff",
+              fontWeight: "bold",
+              textAlign: "center",
+            },
+          });
+          const cookies = new Cookies();
+          cookies.set("token", res.data.data.patchUser, {
+            path: "/",
+            maxAge: process.env.NEXT_PUBLIC_COOKIE_EXP_SEC,
+          });
+        } else {
+          toast.error(res.data.errors[0].message, {
+            style: {
+              background: "#333",
+              color: "#fff",
+              fontWeight: "bold",
+              textAlign: "center",
+            },
+          });
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  // ---------------------------------------------------------------------------
   const userAuthentication = async (form) => {
     let userConfirmation = false;
     const AUTHENTICATE_USER = gql`
@@ -80,7 +138,7 @@ export const UserContext = ({ children }) => {
           toast.success("Login successful", {
             style: {
               background: "#333",
-              color: "#5cc1ef",
+              color: "#fff",
               fontWeight: "bold",
               textAlign: "center",
             },
@@ -95,7 +153,7 @@ export const UserContext = ({ children }) => {
           toast.error(res.data.errors[0].message, {
             style: {
               background: "#333",
-              color: "#5cc1ef",
+              color: "#fff",
               fontWeight: "bold",
               textAlign: "center",
             },
@@ -108,6 +166,7 @@ export const UserContext = ({ children }) => {
     return userConfirmation;
   };
 
+  // ---------------------------------------------------------------------------
   const logout = () => {
     const cookies = new Cookies();
     cookies.remove("token", { path: "/" });
@@ -115,7 +174,9 @@ export const UserContext = ({ children }) => {
   };
 
   return (
-    <Context.Provider value={{ postUser, userAuthentication, logout }}>
+    <Context.Provider
+      value={{ postUser, patchUser, userAuthentication, logout }}
+    >
       {children}
     </Context.Provider>
   );

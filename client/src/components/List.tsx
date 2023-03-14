@@ -18,9 +18,6 @@ export const List = () => {
         <div className="default">
           <h3 className="fw-bold fst-italic default-title">My Projects</h3>
           <ul className="list-group mt-3">
-            <li className="list-group-item selected-proyect">
-              Selected project
-            </li>
             <li className="list-group-item">
               <Link href={`/project/1`} className="item">
                 A third item
@@ -34,9 +31,6 @@ export const List = () => {
           </h3>
           {show && (
             <ul className="list-group mt-3">
-              <li className="list-group-item selected-proyect">
-                Selected Proyect RESPONSIVE
-              </li>
               <li className="list-group-item">
                 <Link href={`/project/1`} className="item">
                   A third item RESPONSIVE

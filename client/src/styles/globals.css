@@ -394,7 +394,7 @@
 }
 
 * {
-  font-family: "Raleway", sans-serif;
+  font-family: "Raleway", sans-serif, Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -458,11 +458,6 @@ body {
   cursor: pointer;
   color: #ffc107;
   transition: 0.4s;
-}
-#list .selected-proyect {
-  cursor: pointer;
-  font-weight: bold !important;
-  color: #ffc107 !important;
 }
 #list li {
   background: none;

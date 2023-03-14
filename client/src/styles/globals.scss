@@ -7,7 +7,7 @@
 @import "pages/sign-in/index";
 
 * {
-  font-family: "Raleway", sans-serif;
+  font-family: "Raleway", sans-serif, Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -77,12 +77,6 @@ body {
         transition: $transition-time;
       }
     }
-  }
-
-  .selected-proyect {
-    cursor: pointer;
-    font-weight: bold !important;
-    color: $hover-color !important;
   }
 
   li {

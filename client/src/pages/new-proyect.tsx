@@ -6,14 +6,14 @@ import auth from "@/middleware/auth";
 import * as cookie from "cookie";
 import Head from "next/head";
 
-export default function NewProyect() {
+export default function NewProyect(props: { user: any; token: string }) {
   return (
     <>
       <Head>
         <title>New Proyect | UpTask 2023</title>
       </Head>
       <main>
-        <Header />
+        <Header user={props.user} token={props.token} />
         <div className="list-container">
           <List />
           <Form />
@@ -33,7 +33,8 @@ export const getServerSideProps = async (context: any) => {
     token = parsedCookies.token;
   }
 
-  if (!(await auth(token))) {
+  const user = await auth(token);
+  if (!user) {
     return {
       redirect: {
         destination: "/welcome",
@@ -44,6 +45,7 @@ export const getServerSideProps = async (context: any) => {
     return {
       props: {
         token,
+        user,
       },
     };
   }

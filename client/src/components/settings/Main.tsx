@@ -1,10 +1,12 @@
 import React from "react";
 import * as Yup from "yup";
 import { useStateContext } from "../../context/StateContext";
+import { useUserContext } from "../../context/UserContext";
 import { useFormik } from "formik";
 
-export const Main = () => {
+export const Main = (props: { user: any; token: string }) => {
   const { countriesList, getAllCountries } = useStateContext();
+  const { patchUser } = useUserContext();
 
   React.useEffect(() => {
     getAllCountries();
@@ -12,8 +14,8 @@ export const Main = () => {
 
   const formik = useFormik({
     initialValues: {
-      username: "default",
-      country: "default",
+      username: props.user.username,
+      country: props.user.country,
     },
     validationSchema: Yup.object({
       username: Yup.string()
@@ -23,7 +25,7 @@ export const Main = () => {
       country: Yup.string().required("The country is required."),
     }),
     onSubmit: async (formData: any) => {
-      console.log(formData);
+      await patchUser(formData, props.token);
     },
   });
 
@@ -34,7 +36,9 @@ export const Main = () => {
 
         <div className="d-flex align-items-start py-3 border-bottom">
           <img
-            src="https://wrestlingnews.co/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cq_auto:good%2Cw_1200/MTkzMDQ4OTQwMTg1MTM0ODAw/roxanne-perez.png"
+            src={
+              props.user.img ? props.user.img : process.env.NEXT_PUBLIC_USER_PIC
+            }
             className="img"
             alt="profile-img"
           />
@@ -57,15 +61,11 @@ export const Main = () => {
                     type="text"
                     className="bg-light form-control"
                     name="username"
+                    min={3}
+                    max={50}
                     onChange={formik.handleChange}
                     value={formik.values.username}
                   />
-                  {formik.errors.username &&
-                    formik.values.username.length !== 0 && (
-                      <small className="text-danger">
-                        {formik.errors.username}
-                      </small>
-                    )}
                 </div>
 
                 <div className="col-md-6">
@@ -93,7 +93,7 @@ export const Main = () => {
                   </select>
                 </div>
               </div>
-              <div className="py-3 pb-4 border-bottom">
+              <div className="py-3 pb-4">
                 <button
                   type="submit"
                   className="btn btn-primary mr-3"

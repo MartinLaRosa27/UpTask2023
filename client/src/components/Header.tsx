@@ -7,7 +7,7 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 import { useRouter } from "next/router";
 import { useUserContext } from "../context/UserContext";
 
-export const Header = () => {
+export const Header = (props: { user: any; token: string }) => {
   const router = useRouter();
   const { logout } = useUserContext();
 
@@ -56,7 +56,11 @@ export const Header = () => {
           <NavDropdown
             title={
               <img
-                src="https://wrestlingnews.co/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cq_auto:good%2Cw_1200/MTkzMDQ4OTQwMTg1MTM0ODAw/roxanne-perez.png"
+                src={
+                  props.user.img
+                    ? props.user.img
+                    : process.env.NEXT_PUBLIC_USER_PIC
+                }
                 alt="Profile img"
                 className="user-icon"
               />
@@ -65,10 +69,7 @@ export const Header = () => {
           >
             <NavDropdown.Item href="/settings">My Account</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item
-              href="#action/3.4"
-              onClick={() => handleClickLogOut()}
-            >
+            <NavDropdown.Item href="/" onClick={() => handleClickLogOut()}>
               Log out
             </NavDropdown.Item>
           </NavDropdown>

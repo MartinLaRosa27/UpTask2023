@@ -8,14 +8,14 @@ import auth from "@/middleware/auth";
 import * as cookie from "cookie";
 import Head from "next/head";
 
-export default function Proyect() {
+export default function Proyect(props: { user: any; token: string }) {
   return (
     <>
       <Head>
         <title>Project Name | UpTask 2023</title>
       </Head>
       <main id="proyect">
-        <Header />
+        <Header user={props.user} token={props.token} />
         <div className="list-container">
           <List />
           <div className="information pt-5 pb-5">
@@ -48,7 +48,8 @@ export const getServerSideProps = async (context: any) => {
     token = parsedCookies.token;
   }
 
-  if (!(await auth(token))) {
+  const user = await auth(token);
+  if (!user) {
     return {
       redirect: {
         destination: "/welcome",
@@ -59,6 +60,7 @@ export const getServerSideProps = async (context: any) => {
     return {
       props: {
         token,
+        user,
       },
     };
   }

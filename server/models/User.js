@@ -1,5 +1,4 @@
 const Sequelize = require("sequelize");
-const bcrypt = require("bcrypt");
 const { DBConfiguration } = require("../config/DBConfiguration");
 
 const User = DBConfiguration.define("user", {
@@ -44,16 +43,11 @@ const User = DBConfiguration.define("user", {
     type: Sequelize.STRING(60),
     allowNull: false,
     validate: {
-      len: [8, 25],
+      len: [8, 60],
       notContains: " ",
       notEmpty: true,
     },
   },
-});
-
-User.afterValidate(async (user) => {
-  const password = await bcrypt.hash(user.password, 10);
-  user.password = password;
 });
 
 module.exports = User;

@@ -5,6 +5,7 @@ const Context = createContext();
 export const StateContext = ({ children }) => {
   const [countriesList, setCountriesList] = React.useState(null);
 
+  // ---------------------------------------------------------------------------
   const getAllCountries = async () => {
     await axios
       .get(process.env.NEXT_PUBLIC_COUNTRIES_API)

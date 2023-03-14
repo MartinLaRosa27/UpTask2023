@@ -1,6 +1,7 @@
 const {
   postUser,
   userAuthentication,
+  patchUser,
 } = require("../controllers/userController");
 const { auth } = require("../middleware/auth");
 
@@ -21,6 +22,10 @@ module.exports.resolvers = {
     // User:
     postUser: (root, { input }, context) => {
       return postUser(input);
+    },
+
+    patchUser: (root, { input }, context) => {
+      return patchUser(input, context.user);
     },
   },
 };
